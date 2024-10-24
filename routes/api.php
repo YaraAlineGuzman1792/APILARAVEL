@@ -22,3 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('users',[ApiController::class, 'users']);
 Route::get('login',[ApiController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Rutas accesibles solo por administradores
+    Route::middleware('is_admin')->group(function () {
+        Route::get('/admin-dashboard', 'AdminController@dashboard');
+    });
+
+    // Rutas accesibles por todos los usuarios autenticados
+    Route::get('/user-dashboard', 'UserController@dashboard');
+});
