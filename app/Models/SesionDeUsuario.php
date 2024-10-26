@@ -11,11 +11,11 @@ class Usuario extends Model
 
     public function arthur()
     {
-        return $this->hasMany(Arthur::class, 'usuario_usuario_id');
+        return $this->hasMany(Arthur::class, 'user_id');
     }
 
     public function sesionesDeUsuario()
     {
-        return $this->hasMany(SesionDeUsuario::class, 'usuario_usuario_id');
+        return $this->hasMany(SesionDeUsuario::class, 'user_id');
     }
 }

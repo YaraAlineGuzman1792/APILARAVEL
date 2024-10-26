@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApiController;
 
 /*
@@ -32,4 +32,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Rutas accesibles por todos los usuarios autenticados
     Route::get('/user-dashboard', 'UserController@dashboard');
 });
+
+use App\Http\Controllers\RobotController;
+
+Route::post('/update-state', [RobotController::class, 'updateState']);
+
+
 

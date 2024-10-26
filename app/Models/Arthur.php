@@ -9,12 +9,12 @@ class Arthur extends Model
 {
     protected $table = 'arthur';
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class, 'usuario_usuario_id');
+        return $this->belongsTo(Usuario::class, 'user_id');
     }
 
-    public function registrosDeEstado()
+    public function registrosDeEstado(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(RegistroDeEstado::class, 'arthur_id');
     }
